@@ -1,0 +1,56 @@
+{
+  "name": "webassembly-boilerplate",
+  "version": "0.0.1",
+  "description": "Boilerplate to get up and running with WebAssembly.",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "compile": "node internals/scripts/compile.js",
+    "test": "cross-env NODE_ENV=test mocha test/*.test.js --require ./internals/testing/setup.js --recursive --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikerourke/webassembly-boilerplate.git"
+  },
+  "keywords": [
+    "webassembly"
+  ],
+  "author": "Mike Rourke <mike.w.rourke@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikerourke/webassembly-boilerplate/issues"
+  },
+  "homepage": "https://github.com/mikerourke/webassembly-boilerplate#readme",
+  "devDependencies": {
+    "chai": "^4.1.1",
+    "chai-as-promised": "^7.1.1",
+    "chalk": "^2.1.0",
+    "cross-env": "^5.0.5",
+    "eslint": "^4.4.1",
+    "mocha": "^3.5.0"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "settings": {
+      "ecmascript": 6
+    },
+    "globals": {
+      "WebAssembly": true,
+      "expect": true
+    },
+    "env": {
+      "es6": true,
+      "node": true,
+      "mocha": true
+    },
+    "rules": {
+      "max-len": [
+        "error",
+        100,
+        2
+      ],
+      "no-console": "off"
+    }
+  }
+}

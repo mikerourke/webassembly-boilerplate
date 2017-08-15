@@ -1,0 +1,34 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Dependency directories
+node_modules
+jspm_packages
+dictionaries
+
+# Optional npm cache directory
+.npm
+.yarnclean
+
+# Optional REPL history
+.node_repl_history
+
+# WebStorm Configuration
+.idea
+
+# Bash
+*.stackdump
+
+# Mac
+*.DS_Store
+
+# CMake/Build files:
+cmake-build-debug
+*.wasm

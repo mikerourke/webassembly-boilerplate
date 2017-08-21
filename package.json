@@ -6,7 +6,9 @@
     "test": "test"
   },
   "scripts": {
-    "compile": "node internals/scripts/compile.js",
+    "precompile": "rm -f -- src/main.wasm",
+    "compile": "wa compile -q -O -o src/main.wasm src/main.c",
+    "pretest": "npm run compile",
     "test": "cross-env NODE_ENV=test mocha test/*.test.js --require ./internals/testing/setup.js --recursive --colors"
   },
   "repository": {
@@ -22,6 +24,9 @@
     "url": "https://github.com/mikerourke/webassembly-boilerplate/issues"
   },
   "homepage": "https://github.com/mikerourke/webassembly-boilerplate#readme",
+  "dependencies": {
+    "webassembly": "^0.11.0"
+  },
   "devDependencies": {
     "chai": "^4.1.1",
     "chai-as-promised": "^7.1.1",

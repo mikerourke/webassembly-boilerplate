@@ -1,18 +1,12 @@
-const compileWasm = require('../internals/scripts/compile');
-const loadModule = require('../src/index');
+const webassembly = require('webassembly');
 
 describe('Compilation and Runner', function() {
   let instance;
 
-  before(function (done) {
-    compileWasm()
-      .then(() => done())
-      .catch(error => done(error));
-  });
-
   describe('Setup', function() {
     it('creates a new instance', function(done) {
-      loadModule()
+      webassembly
+        .load('src/main.wasm')
         .then((loadedInstance) => {
           instance = loadedInstance;
           expect(instance).to.not.be.undefined;
@@ -24,7 +18,7 @@ describe('Compilation and Runner', function() {
 
   describe('Functionality', function() {
     it('gets the square root', function() {
-      expect(instance.getSqrt(25)).to.equal(5);
+      expect(instance.exports.getSqrt(25)).to.equal(5);
     });
   });
 });
